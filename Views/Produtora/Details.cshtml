@@ -1,0 +1,36 @@
+﻿@model Locadora.Models.Produtora
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Produtora</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProdNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProdNome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProdCnpj)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProdCnpj)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProdEnd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProdEnd)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProdId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
