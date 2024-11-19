@@ -34,11 +34,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Emprestimo" class="form-label">Disponível para Empréstimo</label>
-                    <select asp-for="Emprestimo" class="form-select">
-                        <option value="true">Sim</option>
-                        <option value="false">Não</option>
-                    </select>
+                    <label asp-for="Emprestimo" class="form-label">Data de Empréstimo</label>
+                    <input asp-for="Emprestimo" type="date" class="form-control" />
                     <span asp-validation-for="Emprestimo" class="text-danger"></span>
                 </div>
 
