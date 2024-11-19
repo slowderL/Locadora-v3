@@ -1,0 +1,45 @@
+﻿@model Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Excluir Filme";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-danger text-white text-center">
+            <h2 class="mb-0">Excluir Filme</h2>
+        </div>
+        <div class="card-body p-4">
+            <p class="text-center text-muted mb-4">
+                Tem certeza de que deseja excluir este filme? Esta ação não pode ser desfeita.
+            </p>
+
+            <div class="mb-4">
+                <h4 class="text-primary">Detalhes do Filme</h4>
+                <dl class="row mt-3">
+                    <dt class="col-sm-3 fw-bold">Nome:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                    <dt class="col-sm-3 fw-bold">Gênero:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Genero)</dd>
+
+                    <dt class="col-sm-3 fw-bold">Preço:</dt>
+                    <dd class="col-sm-9">R$ @Html.DisplayFor(model => model.Preco)</dd>
+
+                    <dt class="col-sm-3 fw-bold">Disponível:</dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Emprestimo, new { @class = "badge bg-success" })
+                    </dd>
+                </dl>
+            </div>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-danger btn-lg">Excluir</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

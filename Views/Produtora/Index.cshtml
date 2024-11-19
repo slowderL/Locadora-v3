@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Locadora.Models.Produtora>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdCnpj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdCnpj)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
