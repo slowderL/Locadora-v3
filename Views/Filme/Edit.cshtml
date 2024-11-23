@@ -4,51 +4,72 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<body class="bg-dark text-white">
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Editar Filme</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Informações do Filme</h4>
+            <hr class="bg-danger">
 
-<h4>Filme</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Emprestimo" class="control-label"></label>
-                <input asp-for="Emprestimo" class="form-control" />
-                <span asp-validation-for="Emprestimo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Devolucao" class="control-label"></label>
-                <input asp-for="Devolucao" class="form-control" />
-                <span asp-validation-for="Devolucao" class="text-danger"></span>
-            </div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <!-- Checkbox para ProdId (várias produtoras) -->
-            <div class="form-group mb-3">
-                <label asp-for="ProdId" class="control-label">Produtora</label>
-                <select asp-for="ProdId" class="form-control" asp-items="ViewBag.Produtoras"></select>
-            </div>
+                <!-- Campo Id -->
+                <input type="hidden" asp-for="Id" />
 
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <!-- Nome do Filme -->
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <!-- Preço do Filme -->
+                <div class="form-group">
+                    <label asp-for="Preco" class="control-label"></label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+
+                <!-- Emprestimo do Filme -->
+                <div class="form-group">
+                    <label asp-for="Emprestimo" class="control-label"></label>
+                    <input asp-for="Emprestimo" class="form-control" />
+                    <span asp-validation-for="Emprestimo" class="text-danger"></span>
+                </div>
+
+                <!-- Devolução do Filme -->
+                <div class="form-group">
+                    <label asp-for="Devolucao" class="control-label"></label>
+                    <input asp-for="Devolucao" class="form-control" />
+                    <span asp-validation-for="Devolucao" class="text-danger"></span>
+                </div>
+
+                <!-- Produtora (Seleção de Produtoras) -->
+                <div class="form-group mb-3">
+                    <label asp-for="ProdId" class="control-label">Produtora</label>
+                    <select asp-for="ProdId" class="form-control" asp-items="ViewBag.Produtoras">
+                        <option value="">Selecione a Produtora</option>
+                    </select>
+                    <span asp-validation-for="ProdId" class="text-danger"></span>
+                </div>
+
+                <!-- Botão de Salvar -->
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-danger btn-lg d-inline-block me-3" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="text-center mt-4">
+        <!-- Botão para voltar à lista -->
+        <a asp-action="Index" class="btn btn-secondary btn-lg d-inline-block">Voltar à Lista</a>
+    </div>
+</body>
 
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
