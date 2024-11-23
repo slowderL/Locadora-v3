@@ -1,43 +1,64 @@
 ﻿@model Locadora.Models.Produtora
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar Produtora";
+    <link rel="stylesheet" href="~/css/netflix-theme.css" />
 }
 
-<h1>Create</h1>
+<body class="bg-dark text-white">
 
-<h4>Produtora</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProdNome" class="control-label"></label>
-                <input asp-for="ProdNome" class="form-control" />
-                <span asp-validation-for="ProdNome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProdCnpj" class="control-label"></label>
-                <input asp-for="ProdCnpj" class="form-control" />
-                <span asp-validation-for="ProdCnpj" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProdEnd" class="control-label"></label>
-                <input asp-for="ProdEnd" class="form-control" />
-                <span asp-validation-for="ProdEnd" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Criar Nova Produtora</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Preencha os detalhes da produtora</h4>
+            <hr class="bg-danger">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Nome da Produtora -->
+                <div class="form-group mb-3">
+                    <label asp-for="ProdNome" class="control-label">Nome da Produtora</label>
+                    <input asp-for="ProdNome" class="form-control" placeholder="Coloque o nome" />
+                    <span asp-validation-for="ProdNome" class="text-danger"></span>
+                </div>
+
+                <!-- CNPJ -->
+                <div class="form-group mb-3">
+                    <label asp-for="ProdCnpj" class="control-label">CNPJ</label>
+                    <input asp-for="ProdCnpj" class="form-control" placeholder="Coloque o CNPJ" />
+                    <span asp-validation-for="ProdCnpj" class="text-danger"></span>
+                </div>
+
+                <!-- Endereço -->
+                <div class="form-group mb-3">
+                    <label asp-for="ProdEnd" class="control-label">Endereço</label>
+                    <input asp-for="ProdEnd" class="form-control" placeholder="Coloque o endereço" />
+                    <span asp-validation-for="ProdEnd" class="text-danger"></span>
+                </div>
+
+                <!-- Data de Criação -->
+                <div class="form-group mb-3">
+                    <label asp-for="DtCriacao" class="control-label">Data de Criação</label>
+                    <input asp-for="DtCriacao" class="form-control" type="date" />
+                    <span asp-validation-for="DtCriacao" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group mb-3">
+                    <input type="submit" value="Criar Produtora" class="btn btn-danger w-100" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="text-light">Voltar à Lista</a>
+    </div>
+
+</body>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

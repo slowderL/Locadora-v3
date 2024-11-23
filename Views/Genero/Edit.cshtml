@@ -1,44 +1,55 @@
 ﻿@model Locadora.Models.Genero
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Gênero";
 }
 
-<h1>Edit</h1>
+<body class="bg-dark text-white">
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Editar Gênero</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Modifique os Detalhes do Gênero</h4>
+            <hr class="bg-danger">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="GenId" />
 
-<h4>Genero</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="GenId" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <!-- Campo para Nome -->
+                <div class="form-group mb-3">
+                    <label asp-for="Nome" class="control-label">Nome</label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <!-- Campo para Descrição -->
+                <div class="form-group mb-3">
+                    <label asp-for="desc" class="control-label">Descrição</label>
+                    <input asp-for="desc" class="form-control" />
+                    <span asp-validation-for="desc" class="text-danger"></span>
+                </div>
+
+                <!-- Campo para Data de Criação -->
+                <div class="form-group mb-3">
+                    <label asp-for="DtCriacao" class="control-label">Data de Criação</label>
+                    <input asp-for="DtCriacao" class="form-control" type="date" />
+                    <span asp-validation-for="DtCriacao" class="text-danger"></span>
+                </div>
+
+                <!-- Botão de Salvar -->
+                <div class="form-group mb-3">
+                    <input type="submit" value="Salvar" class="btn btn-danger w-100" />
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <!-- Botão Voltar à Lista -->
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Voltar à Lista</a>
             </div>
-            <div class="form-group">
-                <label asp-for="desc" class="control-label"></label>
-                <input asp-for="desc" class="form-control" />
-                <span asp-validation-for="desc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DtCriacao" class="control-label"></label>
-                <input asp-for="DtCriacao" class="form-control" />
-                <span asp-validation-for="DtCriacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</body>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

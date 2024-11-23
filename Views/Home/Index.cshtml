@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "CalangoFlix - Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem-vindo ao CalangoFlix</h1>
+    <p class="lead">Sua ferramenta para genreciar e organizar seu aluguel de filmes.</p>
+    <p>Cadastre seus filmes favoritos, suas respecitivas produtoras que fazem isso acontecer e adicione novos gêneros!</p>
+    <a href="/Filme" class="btn btn-primary btn-lg mt-3"> Explorar Filmes</a>
+    <a href="/Produtora" class="btn btn-secondary btn-lg mt-3"> Cadastrar Produtoras</a>
+    <a href="/Genero" class="btn btn-success btn-lg mt-3"> Cadastrar Gêneros</a> <!-- Novo botão -->
+</div>
+
+<div class="mt-5">
+    <h2 class="text-center">Cadastre Filmes como</h2>
+    <div class="row mt-4">
+        <!-- Filme 1 -->
+        <div class="col-md-4 text-center">
+            <img src="~/imagens/cartaz.jpg" class="img-fluid rounded shadow" alt="Vingadores ultimato">
+            <h5 class="mt-3">Vingadores ultimato</h5>
+            <p class="text-muted">Vingadores: Ultimato (2019) é a conclusão da saga dos Vingadores no MCU.
+                Após Thanos dizimar metade da população, os heróis sobreviventes tentam reverter a destruição viajando no
+                tempo para coletar as Joias do Infinito antes de Thanos. O filme culmina em uma batalha épica, com grandes
+                sacrifícios e despedidas, encerrando a história que começou com Vingadores (2012). É um dos maiores sucessos da
+                Marvel, oferecendo um fechamento emocionante para os heróis originais..</p>
+        </div>
+        <!-- Filme 2 -->
+        <div class="col-md-4 text-center">
+            <img src="~/imagens/cartaz2.jpg" class="img-fluid rounded shadow" alt="Pantera Negra ">
+            <h5 class="mt-3">Pantera Negra</h5>
+            <p class="text-muted">Wakanda enfrenta uma nova ameaça com a ascensão de Namor, o governante da nação subaquática de Talocan,
+                que entra em conflito com Wakanda sobre a exploração dos recursos naturais. Enquanto a Rainha Ramonda, Shuri, Okoye e M'Baku tentam proteger o reino,
+                surgem novos heróis como Riri Williams, também conhecida como Coração de Ferro..</p>
+        </div>
+        <!-- Filme 3 -->
+        <div class="col-md-4 text-center">
+            <img src="~/imagens/cartaz3.jpg" class="img-fluid rounded shadow" alt="Karate kid ">
+            <h5 class="mt-3">Karate kid</h5>
+            <p class="text-muted">
+                "Karatê Kid" (2010) é um remake do clássico de 1984. Dre Parker, um adolescente de Detroit,
+                se muda para Pequim e enfrenta bullying de um grupo de jovens praticantes de kung fu. Ele é ajudado por Mr. Han, um zelador que ensina Dre kung fu como
+                forma de autodefesa e crescimento pessoal. Dre aprende lições de paciência, respeito e confiança, culminando em um torneio de kung fu onde ele precisa enfrentar o
+                líder dos agressores, Cheng. O filme, estrelado por Jaden Smith e Jackie Chan, foca em superação e amizade..
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <h2 class="text-center">Sobre o CalangoFlix</h2>
+    <p class="text-center">
+        O CalangoFlix é uma plataforma dedicada ao cadastro e à exploração de filmes, generos e produtoras cinematográficas.
+        Nosso objetivo é ajudar os entusiastas de filmes na orgaznizção de sua lista de filmes preferidos, e ajuda-los a ter uma belissmia lista de filmes e series para maratonar .
+    </p>
 </div>

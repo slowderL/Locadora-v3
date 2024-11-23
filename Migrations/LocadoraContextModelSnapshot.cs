@@ -4,19 +4,16 @@ using Locadora.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace Locadora.Migrations
 {
-    [DbContext(typeof(Contexto))]
-    [Migration("20241119122127_v29")]
-    partial class v29
+    [DbContext(typeof(LocadoraContext))]
+    partial class LocadoraContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,6 +21,21 @@ namespace Locadora.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("FilmeGenero", b =>
+                {
+                    b.Property<int>("FilmeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GenId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FilmeId", "GenId");
+
+                    b.HasIndex("GenId");
+
+                    b.ToTable("FilmeGenero", (string)null);
+                });
 
             modelBuilder.Entity("Locadora.Models.Filme", b =>
                 {
@@ -33,11 +45,11 @@ namespace Locadora.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Emprestimo")
+                    b.Property<DateTime>("Devolucao")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Genero")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Emprestimo")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
@@ -45,7 +57,12 @@ namespace Locadora.Migrations
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("ProdId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProdId");
 
                     b.ToTable("Filmes");
                 });
@@ -80,6 +97,9 @@ namespace Locadora.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProdId"));
 
+                    b.Property<DateTime>("DtCriacao")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ProdCnpj")
                         .HasColumnType("nvarchar(max)");
 
@@ -92,6 +112,37 @@ namespace Locadora.Migrations
                     b.HasKey("ProdId");
 
                     b.ToTable("Produtoras");
+                });
+
+            modelBuilder.Entity("FilmeGenero", b =>
+                {
+                    b.HasOne("Locadora.Models.Filme", null)
+                        .WithMany()
+                        .HasForeignKey("FilmeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Locadora.Models.Genero", null)
+                        .WithMany()
+                        .HasForeignKey("GenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Locadora.Models.Filme", b =>
+                {
+                    b.HasOne("Locadora.Models.Produtora", "Produtora")
+                        .WithMany("Filmes")
+                        .HasForeignKey("ProdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produtora");
+                });
+
+            modelBuilder.Entity("Locadora.Models.Produtora", b =>
+                {
+                    b.Navigation("Filmes");
                 });
 #pragma warning restore 612, 618
         }

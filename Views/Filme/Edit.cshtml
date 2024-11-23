@@ -1,58 +1,54 @@
 ﻿@model Locadora.Models.Filme
 
 @{
-    ViewData["Title"] = "Editar Filme";
+    ViewData["Title"] = "Edit";
 }
 
-<div class="container mt-5">
-    <h1 class="text-center">@ViewData["Title"]</h1>
-    <p class="text-muted text-center">Atualize as informações do filme no formulário abaixo.</p>
-    <hr />
+<h1>Edit</h1>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form asp-action="Edit" class="shadow p-4 rounded bg-light">
-                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                <input type="hidden" asp-for="Id" />
+<h4>Filme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emprestimo" class="control-label"></label>
+                <input asp-for="Emprestimo" class="form-control" />
+                <span asp-validation-for="Emprestimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Devolucao" class="control-label"></label>
+                <input asp-for="Devolucao" class="form-control" />
+                <span asp-validation-for="Devolucao" class="text-danger"></span>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Nome" class="form-label">Nome do Filme</label>
-                    <input asp-for="Nome" class="form-control" placeholder="Digite o nome do filme" />
-                    <span asp-validation-for="Nome" class="text-danger"></span>
-                </div>
+            <!-- Checkbox para ProdId (várias produtoras) -->
+            <div class="form-group mb-3">
+                <label asp-for="ProdId" class="control-label">Produtora</label>
+                <select asp-for="ProdId" class="form-control" asp-items="ViewBag.Produtoras"></select>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Genero" class="form-label">Gênero</label>
-                    <input asp-for="Genero" class="form-control" placeholder="Digite o gênero do filme" />
-                    <span asp-validation-for="Genero" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="Preco" class="form-label">Preço</label>
-                    <input asp-for="Preco" class="form-control" placeholder="Digite o preço do filme" />
-                    <span asp-validation-for="Preco" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="Emprestimo" class="form-label">Data de Empréstimo</label>
-                    <input asp-for="Emprestimo" type="date" class="form-control" />
-                    <span asp-validation-for="Emprestimo" class="text-danger"></span>
-                </div>
-
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary btn-lg">Salvar Alterações</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="text-center mt-4">
-        <a asp-action="Index" class="btn btn-outline-secondary">Voltar à Lista</a>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

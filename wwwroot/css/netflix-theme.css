@@ -1,0 +1,131 @@
+/* Geral */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que a página ocupa toda a altura da janela */
+    margin: 0;
+    background-color: #141414; /* Cor de fundo estilo Netflix */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    padding: 1rem 1.5rem;
+    background-color: #222; /* Fundo escuro estilo Netflix */
+    border-bottom: 2px solid #e50914; /* Barra vermelha característica */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+    .navbar-brand img.logo {
+        height: 32px;
+        margin-right: 10px;
+    }
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+    .nav-link:hover {
+        color: #e50914; /* Vermelho estilo Netflix */
+        text-decoration: none;
+    }
+
+/* Conteúdo Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    color: #999;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .footer a:hover {
+            color: #e50914;
+            text-decoration: underline;
+        }
+
+/* Botões */
+.btn-primary {
+    background-color: #e50914; /* Vermelho estilo Netflix */
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #bf0810;
+        border: none;
+    }
+
+/* Links */
+a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+/* Cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Inputs e Formulários */
+input, select, textarea {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #e50914;
+        outline: none;
+        box-shadow: 0 0 5px rgba(229, 9, 20, 0.5);
+    }
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}

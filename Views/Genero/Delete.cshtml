@@ -1,39 +1,55 @@
 ﻿@model Locadora.Models.Genero
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Deletar Gênero";
 }
 
-<h1>Delete</h1>
+<body class="bg-dark text-white">
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Deletar Gênero</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Você tem certeza que deseja deletar este Gênero?</h4>
+            <hr class="bg-danger">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Genero</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.desc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.desc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DtCriacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DtCriacao)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="GenId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.desc)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.desc)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DtCriacao)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DtCriacao)
+                </dd>
+            </dl>
+
+            <div class="text-center mt-4 d-flex justify-content-center">
+                <!-- Formulário para confirmar a exclusão -->
+                <form asp-action="Delete" method="post" onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                    <input type="hidden" asp-for="GenId" />
+                    <input type="submit" value="Confirmar Exclusão" class="btn btn-danger btn-lg me-3" />
+                </form>
+
+                <!-- Botão de Cancelar -->
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

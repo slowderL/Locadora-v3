@@ -2,46 +2,39 @@
 
 @{
     ViewData["Title"] = "Index";
+    <link rel="stylesheet" href="~/css/netflix-theme.css" />
 }
 
-<h1>Index</h1>
+<h1 class="text-center text-light">Produtoras</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-center">
+    <a asp-action="Create" class="btn btn-danger">Criar Nova Produtora</a>
 </p>
-<table class="table">
+
+<table class="table table-dark table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProdNome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProdCnpj)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProdEnd)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.ProdNome)</th>
+            <th>@Html.DisplayNameFor(model => model.ProdCnpj)</th>
+            <th>@Html.DisplayNameFor(model => model.ProdEnd)</th>
+            <th>Data de Criação</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdNome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdCnpj)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdEnd)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProdId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProdId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProdId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ProdNome)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProdCnpj)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProdEnd)</td>
+                <td>@Html.DisplayFor(modelItem => item.DtCriacao)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProdId" class="btn btn-warning btn-sm">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProdId" class="btn btn-info btn-sm">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProdId" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

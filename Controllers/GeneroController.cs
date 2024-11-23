@@ -8,11 +8,11 @@ namespace Locadora.Controllers
 {
     public class GeneroController : Controller
     {
-        private readonly Contexto _context;
+        private readonly LocadoraContext _context;
 
         public Genero Generos { get; private set; }
 
-        public GeneroController(Contexto context)
+        public GeneroController(LocadoraContext context)
         {
             _context = context;
         }

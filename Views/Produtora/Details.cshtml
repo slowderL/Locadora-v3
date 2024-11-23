@@ -1,36 +1,53 @@
 ﻿@model Locadora.Models.Produtora
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes da Produtora";
+    <link rel="stylesheet" href="~/css/netflix-theme.css" />
 }
 
-<h1>Details</h1>
+<body class="bg-dark text-white">
 
-<div>
-    <h4>Produtora</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdNome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProdNome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdCnpj)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProdCnpj)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdEnd)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProdEnd)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProdId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Detalhes da Produtora</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Informações da Produtora</h4>
+            <hr class="bg-danger">
+
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.ProdNome)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ProdNome)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.ProdCnpj)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ProdCnpj)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.ProdEnd)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ProdEnd)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DtCriacao)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DtCriacao)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="text-center mt-4">
+            <a asp-action="Edit" asp-route-id="@Model?.ProdId" class="btn btn-danger btn-lg">Editar</a> |
+            <a asp-action="Index" class="btn btn-secondary btn-lg">Voltar à Lista</a>
+        </div>
+    </div>
+
+</body>

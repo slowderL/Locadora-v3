@@ -4,33 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<body class="bg-dark text-white">
+    <div class="container mt-5">
+        <h1 class="text-center text-danger display-4">Detalhes do Gênero</h1>
+        <div class="card bg-dark text-white p-4 shadow-lg rounded">
+            <h4 class="text-warning">Informações do Gênero</h4>
+            <hr class="bg-danger">
 
-<div>
-    <h4>Genero</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.desc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.desc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DtCriacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DtCriacao)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.GenId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.desc)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.desc)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DtCriacao)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DtCriacao)
+                </dd>
+            </dl>
+
+            <div class="text-center mt-4">
+                <!-- Botões de Ação -->
+                <a asp-action="Edit" asp-route-id="@Model?.GenId" class="btn btn-danger btn-lg me-3">Editar</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Voltar à Lista</a>
+            </div>
+        </div>
+    </div>
+</body>
